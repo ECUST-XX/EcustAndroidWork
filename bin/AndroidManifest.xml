@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.xx"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="19"
+        android:targetSdkVersion="19" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.xx.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>         
+        </activity>
+        
+        <activity
+			android:name="com.example.xx.FirstActivity"
+			android:label="This is FirstActivity" >
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name= "android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+		
+        <activity android:name="com.example.xx.SecondActivity" >
+	       	<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.DEFAULT" />
+       		</intent-filter>
+		</activity>
+        
+        <activity android:name="com.example.xx.CalculatorMain" >
+	       	<intent-filter>
+               <action android:name="android.intent.action.MAIN" />
+               <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+		</activity>
+		
+         <activity android:name="com.example.xx.ChatroomActivity" >
+	       	<intent-filter>
+               <action android:name="android.intent.action.MAIN" />
+               <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+		</activity>
+		
+         <activity android:name="com.example.xx.DatabaseActivity" >
+	       	<intent-filter>
+               <action android:name="android.intent.action.MAIN" />
+               <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+		</activity>
+		
+         <activity android:name="com.example.xx.FriendActivity" >
+	       	<intent-filter>
+               <action android:name="android.intent.action.MAIN" />
+               <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+		</activity>
+		
+         <activity android:name="com.example.xx.RegisterActivity" >
+	       	<intent-filter>
+               <action android:name="android.intent.action.MAIN" />
+               <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+		</activity>
+		
+         <activity android:name="com.example.xx.PeoplechatroomActivity" >
+	       	<intent-filter>
+               <action android:name="android.intent.action.MAIN" />
+               <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+		</activity>
+    </application>
+
+</manifest>
