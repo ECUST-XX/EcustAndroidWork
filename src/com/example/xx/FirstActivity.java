@@ -13,6 +13,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.view.View.OnClickListener;
 
@@ -35,7 +36,9 @@ public class FirstActivity extends Activity {
 	        button2 = (Button)findViewById(R.id.button2);
 	        button3 = (Button)findViewById(R.id.button3);
 	      	        
-	       
+	        TextView view1 = (TextView)findViewById(R.id.title_text);
+            view1.setText("please login!");
+            
 	        /*
             requestWindowFeature(Window.FEATURE_NO_TITLE);
             setContentView(R.layout.first_main);

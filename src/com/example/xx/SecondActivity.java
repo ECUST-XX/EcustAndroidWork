@@ -1,5 +1,7 @@
 package com.example.xx;
 
+import java.math.BigInteger;
+import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -77,26 +79,19 @@ public class SecondActivity extends Activity {
                     	   intent.putExtra("name", name);
                            startActivity(intent);
                        }
+                       if (letter.getLetterName().equals("修改用户")) {
+                    	   Intent intent = new Intent(SecondActivity.this,FixFriendActivity.class);
+                    	   intent.putExtra("name", name);
+                           startActivity(intent);
+                       }
+                       if (letter.getLetterName().equals("删除用户")) {
+                    	   Intent intent = new Intent(SecondActivity.this,DelFriendActivity.class);
+                    	   intent.putExtra("name", name);
+                           startActivity(intent);
+                       }
                  }
            });
-             
-             
-            //TextView view1 = (TextView)findViewById(R.id.view1);
-           
-//            Toast.makeText(SecondActivity.this, name+"登陆成功", Toast.LENGTH_SHORT).show();
-//            setContentView(R.layout.second_main);
-            
-//	        if(this.login(name, password)){
-//                Toast.makeText(SecondActivity.this, name+"登陆成功", Toast.LENGTH_SHORT).show();
-//                setContentView(R.layout.second_main);
-//	        }else{
-//	        	Toast.makeText(SecondActivity.this, name+"登陆失败", Toast.LENGTH_SHORT).show();
-//	        	setContentView(R.layout.first_main);
-//	        	Intent secondIntent = new Intent(SecondActivity.this,FirstActivity.class);
-//	            startActivity(secondIntent);
-//	        }
-	        
-	        
+               
 	 }
 
 	 private void initLetter(){
@@ -106,25 +101,34 @@ public class SecondActivity extends Activity {
 	        Letter b = new Letter("聊天工具", R.drawable.qq);  
 	        letterlist.add(b);
 	        
-	        if(model == 0){
-	        	Letter c = new Letter("数据库重置", R.drawable.database);  
-		        letterlist.add(c);
-            }
-	        
 	        Letter d = new Letter("好友列表", R.drawable.friendlist);  
 	        letterlist.add(d);
 	        
-	        Letter e = new Letter("E", R.drawable.a);  
-	        letterlist.add(e);
+	        if(model == 0){
+	        	Letter c = new Letter("数据库重置", R.drawable.database);  
+		        letterlist.add(c);
+		        
+		        Letter e = new Letter("修改用户", R.drawable.hyl);  
+		        letterlist.add(e);
+		        
+		        Letter f = new Letter("删除用户", R.drawable.qxx);  
+		        letterlist.add(f);
+            }
 	        
-	        Letter f = new Letter("F", R.drawable.a);  
-	        letterlist.add(f);
+	        
+	        
+	        
 	        
 	  }
 
 		public int login(Context context,String name, String password ,int model){
 			
 			User user = new User(context);
+			System.out.println(password);
+			
+			password = User.getMD5(password);
+			
+			System.out.println(password);
 			
 			if (user.findByName(name) == null) {
 				return -1;
@@ -151,7 +155,20 @@ public class SecondActivity extends Activity {
 		}
 	
         
-   
+		public String getMD5(String str) {
+			 try {
+			 // 生成一个MD5加密计算摘要
+			 MessageDigest md = MessageDigest.getInstance("MD5");
+			 // 计算md5函数
+			 md.update(str.getBytes());
+			 // digest()最后确定返回md5 hash值，返回值为8为字符串。因为md5 hash值是16位的hex值，实际上就是8位的字符
+			 // BigInteger函数则将8位的字符串转换成16位hex值，用字符串来表示；得到字符串形式的hash值
+			 return new BigInteger(1, md.digest()).toString(16);
+			 } catch (Exception e) {
+				 e.printStackTrace();
+			 }
+			return str;
+			}
     
 
 

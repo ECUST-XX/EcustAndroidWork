@@ -1,5 +1,8 @@
 package com.example.xx;
 
+import java.math.BigInteger;
+import java.security.MessageDigest;
+
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
@@ -89,6 +92,7 @@ public class DatabaseActivity extends Activity {
 
 	}
 
+	
 	    @Override
 	    public boolean onCreateOptionsMenu(Menu menu) {
 	        // Inflate the menu; this adds items to the action bar if it is present.
